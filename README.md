@@ -1,54 +1,81 @@
-# React + TypeScript + Vite
+# GitHub PR Viewer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a **React-based** application that fetches and displays pull requests (PRs) from a GitHub repository using GitHub's REST API v3. Users can filter PRs by labels and view details.
 
-Currently, two official plugins are available:
+## 🚀 Features
+- Fetch and display PRs from a GitHub repository
+- Show PR details including title, labels, date opened, and a link to the PR
+- Filter PRs by labels
+- Pagination for better UX
+- Loading and error handling states
+- Fully responsive UI using **Material UI**
+- TypeScript for type safety
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📌 Tech Stack
+- **React 18** (with Vite)
+- **TypeScript**
+- **React Query** (for data fetching & caching)
+- **Axios** (for API requests)
+- **Material UI** (for UI components)
+- **React Testing Library & Jest** (for unit tests)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🔧 Setup & Installation
+### 1️⃣ **Clone the Repository**
+```sh
+git clone https://github.com/shafi2019/github-prs-viewer
+cd github-prs-viewer
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+### 2️⃣ **Install Dependencies**
+```sh
+npm install
 ```
+_(If you face dependency issues, try `npm install --legacy-peer-deps`)_
+
+
+### 4️⃣ **Run the Development Server**
+```sh
+npm run dev
+```
+This starts the app at `http://localhost:5173/`
+
+### 5️⃣ **Run Tests**
+```sh
+npm test
+```
+
+---
+
+## 📁 Project Structure
+```
+/src
+  ├── components/        # Reusable UI components
+  │     ├── PRList.tsx    # Displays list of PRs
+  │     ├── PRFilter.tsx  # Filters PRs by label
+  │     ├── Loader.tsx    # Loading indicator
+  │     ├── ErrorMessage.tsx # Handles API errors
+  ├── hooks/
+  │     ├── usePullRequests.ts # React Query hook to fetch PRs
+  ├── pages/
+  │     ├── Home.tsx      # Main page with PR list and filter
+  ├── services/
+  │     ├── githubApi.ts  # Axios service for API requests
+  ├── styles/
+  │     ├── global.css    # Global styles
+  ├── types.ts            # TypeScript types
+  ├── tests/              # Unit tests
+  ├── main.tsx            # Entry point
+  ├── App.tsx             # Main app component
+```
+
+## ✅ Improvements & Future Enhancements
+- **Infinite Scroll** instead of pagination
+- **Dark Mode**
+- **GraphQL API Support**
+- **More advanced filtering (e.g., by author, date range, status)**
+
+
+## 🎯 Author
+Developed by **Shafi Masoumi** - [GitHub](https://github.com/shafi2019)

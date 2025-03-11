@@ -1,0 +1,116 @@
+/* Center the title */
+.app-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #1976d2;
+    margin-bottom: 20px;
+  }
+  
+  /* Filter buttons */
+  .filter-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .filter-button {
+    font-size: 0.9rem;
+    font-weight: bold;
+    border-radius: 10px;
+    border: solid 1px gray;
+    padding: 6px 12px;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .filter-button.active {
+    background-color: #1976d2 !important;
+    color: white !important;
+  }
+  
+  /* PR List Styling */
+  .pr-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+  }
+  
+  .pr-card {
+    padding: 16px;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .pr-card:hover {
+    transform: translateY(-2px);
+  }
+  
+  .pr-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .pr-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .pr-labels {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .pr-chip {
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+  
+  /* Label colors */
+  .pr-chip.enhancement {
+    background-color: #1976d2;
+    color: white;
+  }
+  
+  .pr-chip.animals {
+    background-color: #ff9800;
+    color: white;
+  }
+  
+  .pr-chip.bug {
+    background-color: #d32f2f;
+    color: white;
+  }
+  
+  .pr-date {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 8px;
+  }
+  
+  .pr-link {
+    text-decoration: none;
+    font-weight: bold;
+    color: #1976d2;
+    display: inline-block;
+    margin-top: 10px;
+  }
+  
+  .pr-link:hover {
+    text-decoration: underline;
+  }
+  
+  .pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
