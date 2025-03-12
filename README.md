@@ -71,7 +71,6 @@ npm test
 ```
 
 ## ✅ Improvements & Future Enhancements
-- **Infinite Scroll** instead of pagination
 - **Dark Mode**
 - **GraphQL API Support**
 - **More advanced filtering (e.g., by author, date range, status)**

@@ -10,7 +10,7 @@ interface PRListProps {
   itemsPerPage: number;
 }
 
-const PRList: React.FC<PRListProps> = ({ prs, page, setPage, itemsPerPage }) => {
+const PRList = ({ prs, page, setPage, itemsPerPage }: PRListProps) => {
   const handleChange = (_: React.ChangeEvent<unknown>, value: number) => setPage(value);
   const paginatedPRs = prs.slice((page - 1) * itemsPerPage, page * itemsPerPage);
 

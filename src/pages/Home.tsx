@@ -4,6 +4,7 @@ import { usePullRequests } from "../hooks/usePullRequests";
 import Loader from "../components/Loader";
 import ErrorMessage from "../components/ErrorMessage";
 import { PullRequest, Label } from "../types";
+import PRFilter from "../components/PRFilter";
 
 const Home: React.FC = () => {
   const { data: prs, isLoading, error } = usePullRequests();
@@ -22,20 +23,14 @@ const Home: React.FC = () => {
     selectedLabel ? pr.labels.some((label) => label.name === selectedLabel) : true
   );
 
+  const resetFilter = () => {
+    setSelectedLabel("");
+  };
+
   return (
     <div>
       <h1 className="app-title">GitHub PR Viewer</h1>
-      <div className="filter-container">
-        {labels.map((label) => (
-          <button
-            key={label.id}
-            className={`filter-button ${selectedLabel === label.name ? "active" : ""}`}
-            onClick={() => setSelectedLabel(label.name)}
-          >
-            {label.name.toUpperCase()}
-          </button>
-        ))}
-      </div>
+      <PRFilter labels={labels} selectedLabel={selectedLabel} onSelectLabel={setSelectedLabel} onReset={resetFilter} />
       <PRList prs={filteredPRs} page={page} setPage={setPage} itemsPerPage={itemsPerPage} />
     </div>
   );

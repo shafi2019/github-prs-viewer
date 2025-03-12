@@ -8,26 +8,34 @@
   }
   
   /* Filter buttons */
-  .filter-container {
+  .pr-filter {
     display: flex;
     justify-content: center;
     gap: 10px;
     margin-bottom: 20px;
   }
   
-  .filter-button {
+  .pr-filter-button {
     font-size: 0.9rem;
     font-weight: bold;
-    border-radius: 10px;
-    border: solid 1px gray;
+    border-radius: 20px;
     padding: 6px 12px;
     text-transform: uppercase;
     transition: all 0.3s ease-in-out;
   }
   
-  .filter-button.active {
-    background-color: #1976d2 !important;
+  .pr-reset-button {
+    background-color: #1c1b7c !important;
     color: white !important;
+    font-weight: bold;
+    border-radius: 20px;
+    padding: 6px 12px;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .pr-reset-button:hover {
+    background-color: #191ea3 !important;
   }
   
   /* PR List Styling */
