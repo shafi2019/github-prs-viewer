@@ -7,7 +7,11 @@ import { PullRequest, Label } from "../types";
 import PRFilter from "../components/PRFilter";
 
 const Home: React.FC = () => {
-  const { data: prs, isLoading, error } = usePullRequests();
+  const { data: prs = [], isLoading, error } = usePullRequests() as { 
+    data: PullRequest[]; 
+    isLoading: boolean; 
+    error: unknown 
+  };
   const [selectedLabel, setSelectedLabel] = useState<string>("");
   const [page, setPage] = useState<number>(1);
   const itemsPerPage = 5;
