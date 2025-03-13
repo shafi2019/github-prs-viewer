@@ -1,10 +1,11 @@
-import React, { useState } from "react";
-import PRList from "../components/PRList";
+import React, { useState, Suspense, lazy } from "react";
 import { usePullRequests } from "../hooks/usePullRequests";
 import Loader from "../components/Loader";
 import ErrorMessage from "../components/ErrorMessage";
 import { PullRequest, Label } from "../types";
 import PRFilter from "../components/PRFilter";
+
+const PRList = lazy(() => import("../components/PRList"));
 
 const Home: React.FC = () => {
   const { data: prs = [], isLoading, error } = usePullRequests() as { 
@@ -34,8 +35,17 @@ const Home: React.FC = () => {
   return (
     <div>
       <h1 className="app-title">GitHub PR Viewer</h1>
-      <PRFilter labels={labels} selectedLabel={selectedLabel} onSelectLabel={setSelectedLabel} onReset={resetFilter} />
-      <PRList prs={filteredPRs} page={page} setPage={setPage} itemsPerPage={itemsPerPage} />
+      <PRFilter 
+        labels={labels} 
+        selectedLabel={selectedLabel} 
+        onSelectLabel={setSelectedLabel} 
+        onReset={resetFilter} 
+      />
+      
+      {/* Wrap PRList in Suspense for lazy loading */}
+      <Suspense fallback={<Loader />}>
+        <PRList prs={filteredPRs} page={page} setPage={setPage} itemsPerPage={itemsPerPage} />
+      </Suspense>
     </div>
   );
 };
